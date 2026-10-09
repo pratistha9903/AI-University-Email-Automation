@@ -1,0 +1,82 @@
+{
+  "name": "Admissions DB Lookup",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "sender_email"
+            },
+            {
+              "name": "application_number",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "55616500-0ba2-4013-bba3-4abefb1899b2",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "applicants",
+        "limit": 1,
+        "filterType": "string",
+        "filterString": "=Filter 1 Field: email Operator: equals Value: {{ $json.sender_email }}\n\nAND\n\nFilter 2\nField: application_number\nOperator: equals\nValue: {{ $json.application_number }}"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "85462f36-1f43-49a2-9d46-25591ceb356f",
+      "name": "Get many rows",
+      "credentials": {
+        "supabaseApi": {
+          "id": "ptQBcbz2PlnOYKZg",
+          "name": "pratisthaa09 supabase acc"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromAList",
+    "availableInMCP": false,
+    "callerIds": "CZRxUugxWQtgOa2Y"
+  },
+  "versionId": "c3a72a24-75e6-4cd4-a67b-f49849410579",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9ca56e7e13924ea5842ff551d0c5d049ae4a6f3f5ca5c992981e537f56a380a0"
+  },
+  "nodeGroups": [],
+  "id": "RixRYRYDmcemq00C",
+  "tags": []
+}
