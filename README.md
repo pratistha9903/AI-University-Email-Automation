@@ -13,6 +13,14 @@ The workflow keeps two information sources separate:
 
 The Text Classifier routes each email to a specialist AI Agent. The agent uses the relevant lookup workflow for personal records, the shared vector knowledge base for general policy questions, and the Gmail tool to send its response.
 
+---
+
+## Workflow
+
+<img width="892" height="512" alt="Image" src="https://github.com/user-attachments/assets/3f82f42e-40b7-4238-8c50-8ddd9ccd26e8" />
+
+---
+
 ## Architecture
 
 ### Incoming email path
